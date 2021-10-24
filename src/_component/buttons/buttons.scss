@@ -1,0 +1,36 @@
+@import "button.config";
+
+.button {
+    background-color: $backgroundColor ;
+    border-radius: $borderRadius;
+    border-width: $borderWidth;
+    color: $buttonTextColor;
+    display: flex;
+    align-items: center;
+    justify-self: start;
+    white-space: nowrap;
+
+    &__wrapper{
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(5, auto);
+    }
+
+    &__side {
+        &__left{
+            flex-direction: row-reverse;
+        }
+
+        &__right{
+            flex-direction: row;
+        }
+    }
+
+    &[icon] {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}

@@ -1,0 +1,54 @@
+-
+    var buttonShape = ['xsmall', 'small', 'medium', 'large', 'xlarge']
+    var iconShapeMap = {
+        xsmall: 20,
+        small: 20,
+        medium: 20,
+        large: 20,
+        xlarge: 24
+    }
+
+.button_wrapper
+    each size in buttonShape
+        button.button(
+            class='button__${shape}'
+        ) #{shape} Button CTA!
+
+
+
+    each size in buttonShape 
+        button.button.button__side--left(
+            class='button__${shape}'
+        )
+            span #{shape} Button CTA 
+            img(src='{baseUrl}asset/image/Disc.svg' width="20")
+
+
+
+    each size in buttonShape 
+        button.button.button__side--right(
+            class='button__${shape}'
+        )
+            span #{shape} Button CTA 
+            img(src='{baseUrl}asset/image/Disc.svg' width="20")
+
+
+    each size in buttonShape    
+        button.button.button__side--left(
+            class='button__${shape}'
+        )
+        span #{shape} Button CTA 
+        img(src='{baseUrl}asset/image/Dot.svg' width='20')
+
+
+    each size in buttonShape    
+        button.button(
+            icon="Dot"
+            class='buton__${shape}'
+        )
+            img(
+                src='${baseUrl}asset/image/Dot.svg'
+                width='${iconShapeMap[shape]}'
+            )
+            
+            
