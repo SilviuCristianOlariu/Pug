@@ -1,13 +1,10 @@
 @import "button.config";
-
-// style the .button
 .button {
     background-color: $backgroundColor;
     border-radius: $borderRadius;
     border-width: $borderWidth;
     color: $buttonTextColor;
     display: flex;
-    // gap: 8px;
     align-items: center;
     justify-self: start;
     white-space: nowrap;
@@ -35,84 +32,26 @@
     }
 
     @for $i from 0 to length($buttonShapeList) {
-        &__#{nth($buttonShapeList, ($i + 1))}{
-            // height: $buttonBaseHeight + 4px * ($i + 1);
-            // line-height: $buttonBaseHeight + 4px * ($i + 1);
+        &__#{nth($buttonShapeList, ($i + 1))} {
             height: nth($buttonWidthList, $i + 1);
             line-height: nth($buttonWidthList, $i + 1);
             gap: nth($buttonGapList, $i + 1);
+
+            &:not([icon]) {
+                padding: 0 nth($buttonPaddingList, $i + 1);
+            }
+
+            &[icon] {
+                width: nth($buttonWidthList, $i + 1);
+            }
         }
     }
-
-    &:not([icon]) {
-        padding: nth($buttonPaddingList, $i + 1);
-    }
-
-    &[icon] {
-        width: $buttonWidthList + 4px * 6;
-        &[icon] {
-            width: nth($buttonWidthList, $i + 1);
-        }
-    }
-
-    // &__xsmall {
-    //     height: $buttonBaseHeight + 4px * 0;
-    //     line-height: $buttonBaseHeight + 4px * 0;
-
-    //     &:not([icon]) {
-    //         padding: 0 $buttonBasePadding + 2px * 0;
-    //     }
-
-    //     &[icon] {
-    //         width: $buttonBaseHeight + 4px * 0;
-    //     }
-    // }
-
-    // &__small {
-    //     height: $buttonBaseHeight + 4px * 1;
-    //     line-height: $buttonBaseHeight + 4px * 1;
-    //     padding: 0 $buttonBaseHeight + 2px * 1;
-
-    //     &[icon] {
-    //         width: $buttonBaseHeight + 4px * 1;
-    //     }
-    // }
-
-    // &__medium {
-    //     height: $buttonBaseHeight + 4px * 2;
-    //     line-height: $buttonBaseHeight + 4px * 2;
-    //     padding: 0 $buttonBaseHeight + 2px * 2;
-
-    //     &[icon] {
-    //         width: $buttonBaseHeight + 4px * 2;
-    //     }
-    // }
-
-    // &__large {
-    //     height: $buttonBaseHeight + 4px * 3;
-    //     line-height: $buttonBaseHeight + 4px * 3;
-    //     padding: 0 $buttonBaseHeight + 2px * 3;
-
-    //     &[icon] {
-    //         width: $buttonBaseHeight + 4px * 3;
-    //     }
-    // }
-
-    // &__xlarge {
-    //     height: $buttonBaseHeight + 4px * 6;
-    //     line-height: $buttonBaseHeight + 4px * 6;
-    //     padding: 0 $buttonBaseHeight + 2px * 7;
-    //     gap: 12px;
-
-    //     &[icon] {
-    //         width: $buttonBaseHeight + 4px * 6;
-    //     }
-    // }
 }
 
 .white-disc {
     width: 10px;
     height: 10px;
+
     position: relative;
 
     &::after {
