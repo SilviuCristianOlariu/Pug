@@ -7,23 +7,23 @@
     border-width: $borderWidth;
     color: $buttonTextColor;
     display: flex;
-    gap: 8px;
+    // gap: 8px;
     align-items: center;
     justify-self: start;
     white-space: nowrap;
 
     &__wrapper {
         display: grid;
-        gap: 32px;
+        gap: 2rem;
         grid-template-columns: repeat(5, auto);
     }
 
     &__side {
         &--left {
-            flex-direction: row;
+            flex-direction: row-reverse;
     }
         &--right {
-            flex-direction: row-reverse;
+            flex-direction: row;
         }
     }
 
@@ -34,59 +34,80 @@
         align-items: center;
     }
 
-    &__xsmall {
-        height: $buttonBaseHeight + 4px * 0;
-        line-height: $buttonBaseHeight + 4px * 0;
-
-        &:not([icon]) {
-            padding: 0 $buttonBasePadding + 2px * 0;
-        }
-
-        &[icon] {
-            width: $buttonBaseHeight + 4px * 0;
+    @for $i from 0 to length($buttonShapeList) {
+        &__#{nth($buttonShapeList, ($i + 1))}{
+            // height: $buttonBaseHeight + 4px * ($i + 1);
+            // line-height: $buttonBaseHeight + 4px * ($i + 1);
+            height: nth($buttonWidthList, $i + 1);
+            line-height: nth($buttonWidthList, $i + 1);
+            gap: nth($buttonGapList, $i + 1);
         }
     }
 
-    &__small {
-        height: $buttonBaseHeight + 4px * 1;
-        line-height: $buttonBaseHeight + 4px * 1;
-        padding: 0 $buttonBaseHeight + 2px * 1;
+    &:not([icon]) {
+        padding: nth($buttonPaddingList, $i + 1);
+    }
 
+    &[icon] {
+        width: $buttonWidthList + 4px * 6;
         &[icon] {
-            width: $buttonBaseHeight + 4px * 1;
+            width: nth($buttonWidthList, $i + 1);
         }
     }
 
-    &__medium {
-        height: $buttonBaseHeight + 4px * 2;
-        line-height: $buttonBaseHeight + 4px * 2;
-        padding: 0 $buttonBaseHeight + 2px * 2;
+    // &__xsmall {
+    //     height: $buttonBaseHeight + 4px * 0;
+    //     line-height: $buttonBaseHeight + 4px * 0;
 
-        &[icon] {
-            width: $buttonBaseHeight + 4px * 2;
-        }
-    }
+    //     &:not([icon]) {
+    //         padding: 0 $buttonBasePadding + 2px * 0;
+    //     }
 
-    &__large {
-        height: $buttonBaseHeight + 4px * 3;
-        line-height: $buttonBaseHeight + 4px * 3;
-        padding: 0 $buttonBaseHeight + 2px * 3;
+    //     &[icon] {
+    //         width: $buttonBaseHeight + 4px * 0;
+    //     }
+    // }
 
-        &[icon] {
-            width: $buttonBaseHeight + 4px * 3;
-        }
-    }
+    // &__small {
+    //     height: $buttonBaseHeight + 4px * 1;
+    //     line-height: $buttonBaseHeight + 4px * 1;
+    //     padding: 0 $buttonBaseHeight + 2px * 1;
 
-    &__xlarge {
-        height: $buttonBaseHeight + 4px * 6;
-        line-height: $buttonBaseHeight + 4px * 6;
-        padding: 0 $buttonBaseHeight + 2px * 7;
-        gap: 12px;
+    //     &[icon] {
+    //         width: $buttonBaseHeight + 4px * 1;
+    //     }
+    // }
 
-        &[icon] {
-            width: $buttonBaseHeight + 4px * 6;
-        }
-    }
+    // &__medium {
+    //     height: $buttonBaseHeight + 4px * 2;
+    //     line-height: $buttonBaseHeight + 4px * 2;
+    //     padding: 0 $buttonBaseHeight + 2px * 2;
+
+    //     &[icon] {
+    //         width: $buttonBaseHeight + 4px * 2;
+    //     }
+    // }
+
+    // &__large {
+    //     height: $buttonBaseHeight + 4px * 3;
+    //     line-height: $buttonBaseHeight + 4px * 3;
+    //     padding: 0 $buttonBaseHeight + 2px * 3;
+
+    //     &[icon] {
+    //         width: $buttonBaseHeight + 4px * 3;
+    //     }
+    // }
+
+    // &__xlarge {
+    //     height: $buttonBaseHeight + 4px * 6;
+    //     line-height: $buttonBaseHeight + 4px * 6;
+    //     padding: 0 $buttonBaseHeight + 2px * 7;
+    //     gap: 12px;
+
+    //     &[icon] {
+    //         width: $buttonBaseHeight + 4px * 6;
+    //     }
+    // }
 }
 
 .white-disc {

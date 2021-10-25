@@ -1,70 +1,115 @@
 -
+var buttonShape = ['xsmall', 'small', 'medium', 'large', 'xlarge']
+var iconShapeMap = {
+    xsmall: 20,
+    small: 20,
+    medium: 20,
+    large: 20,
+    xlarge: 24
+}
+
 .button__wrapper
-    button.button.button__xsmall xsmall CTA
-    button.button.button__small small CTA
-    button.button.button__medium medium CTA
-    button.button.button__large large CTA
-    button.button.button__xlarge xlarge CTA
+        //- button.button.button__xsmall xsmall CTA
+        //- button.button.button__small small CTA
+        //- button.button.button__medium medium CTA
+        //- button.button.button__large large CTA
+        //- button.button.button__xlarge xlarge CTA
+    each shape in buttonShape
+        button.button(
+            class=`button__${shape}`
+        ) #{shape} CTA
+        //- whitout repeat here
+
+    each shape in buttonShape
+        button.button.button__side--left(
+            class=`button__${shape}`
+        )
+            span #{shape} CTA
+            img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+
+    each shape in buttonShape
+        button.button.button__side--right(
+            class=`button__${shape}`
+        )
+            span #{shape} CTA
+            img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+
+    each shape in buttonShape
+        button.button.button__side--left(
+            class=`button__${shape}`
+        )
+            span CeBouSunt CTA
+            .white-disc
+
+    each shape in buttonShape
+        button.button(
+            icon="Disc"
+            class=`button__${shape}`
+        )
+            img(
+                src=`${baseUrl}asset/image/Disc.svg`
+                width=`${iconShapeMap[shape]}`
+            )
 
 
-    button.button.button__side--left.button__xsmall
-        span xsmall CTa
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--left.button__small
-        span small CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--left.button__medium
-        span medium CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--left.button__large
-        span large CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--left.button__xlarge
-        span xlarge CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--left.button__xsmall
+    //-     span xsmall CTa
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--left.button__small
+    //-     span small CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--left.button__medium
+    //-     span medium CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--left.button__large
+    //-     span large CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--left.button__xlarge
+    //-     span xlarge CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
 
 
-    button.button.button__side--right.button__xsmall
-        span xsmall CTa
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--right.button__small
-        span small CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--right.button__medium
-        span medium CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--right.button__large
-        span large CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button.button.button__side--right.button__xlarge
-        span xlarge CTA
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--right.button__xsmall
+    //-     span xsmall CTa
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--right.button__small
+    //-     span small CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--right.button__medium
+    //-     span medium CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--right.button__large
+    //-     span large CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button.button.button__side--right.button__xlarge
+    //-     span xlarge CTA
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
 
 
-    button.button.button__side--right.button__xsmall
-        span xsmall CTA
-        .white-disc
-    button.button.button__side--right.button__small
-        span small CTA
-        .white-disc
-    button.button.button__side--right.button__medium
-        span medium CTA
-        .white-disc
-    button.button.button__side--right.button__large
-        span large CTA
-        .white-disc
-    button.button.button__side--right.button__xlarge
-        span xlarge CTA
-        .white-disc
+    //- button.button.button__side--right.button__xsmall
+    //-     span xsmall CTA
+    //-     .white-disc
+    //- button.button.button__side--right.button__small
+    //-     span small CTA
+    //-     .white-disc
+    //- button.button.button__side--right.button__medium
+    //-     span medium CTA
+    //-     .white-disc
+    //- button.button.button__side--right.button__large
+    //-     span large CTA
+    //-     .white-disc
+    //- button.button.button__side--right.button__xlarge
+    //-     span xlarge CTA
+    //-     .white-disc
 
 
-    button(icon="Disc").button.button__xsmall
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button(icon="Disc").button.button__small
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button(icon="Disc").button.button__medium
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button(icon="Disc").button.button__large
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
-    button(icon="Disc").button.button__xlarge
-        img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button(icon="Disc").button.button__xsmall
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button(icon="Disc").button.button__small
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button(icon="Disc").button.button__medium
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button(icon="Disc").button.button__large
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
+    //- button(icon="Disc").button.button__xlarge
+    //-     img(src=`${baseUrl}asset/image/Disc.svg` width="20")
